@@ -6,13 +6,8 @@ kind: Namespace
 metadata:
   name: ttt-game-system
 ---
-
 # -----------------------------------------
 # ttt-api-gateway microservice
-# -----------------------------------------
-
-# -----------------------------------------
-# ttt-api-gateway Deployment
 # -----------------------------------------
 apiVersion: apps/v1
 kind: Deployment
@@ -37,13 +32,10 @@ spec:
         ports:
         - containerPort: 8080
 ---
-# -----------------------------------------
-# ttt-api-gateway Service
-# -----------------------------------------
 apiVersion: v1
 kind: Service
 metadata:
-  name: ttt-api-gateway
+  name: api-gateway
   namespace: ttt-game-system
 spec:
   selector:
@@ -55,10 +47,6 @@ spec:
 ---
 # -----------------------------------------
 # ttt-account-service microservice
-# -----------------------------------------
-
-# -----------------------------------------
-# ttt-account-service Deployment
 # -----------------------------------------
 apiVersion: apps/v1
 kind: Deployment
@@ -82,13 +70,10 @@ spec:
         ports:
         - containerPort: 9000
 ---
-# -----------------------------------------
-# ttt-account-service Service
-# -----------------------------------------
 apiVersion: v1
 kind: Service
 metadata:
-  name: ttt-lobby-service
+  name: account-service
   namespace: ttt-game-system
 spec:
   selector:
@@ -96,14 +81,10 @@ spec:
   ports:
   - port: 9000
   type: ClusterIP
----
 
+---
 # -----------------------------------------
 # ttt-lobby-service microservice
-# -----------------------------------------
-
-# -----------------------------------------
-# ttt-lobby-service Deployment
 # -----------------------------------------
 apiVersion: apps/v1
 kind: Deployment
@@ -127,13 +108,10 @@ spec:
         ports:
         - containerPort: 9001
 ---
-# -----------------------------------------
-# ttt-lobby-service Service
-# -----------------------------------------
 apiVersion: v1
 kind: Service
 metadata:
-  name: ttt-lobby-service
+  name: lobby-service
   namespace: ttt-game-system
 spec:
   selector:
@@ -142,13 +120,8 @@ spec:
   - port: 9001
   type: ClusterIP
 ---
-
 # -----------------------------------------
 # ttt-game-service microservice
-# -----------------------------------------
-
-# -----------------------------------------
-# ttt-game-service Deployment
 # -----------------------------------------
 apiVersion: apps/v1
 kind: Deployment
@@ -172,13 +145,10 @@ spec:
         ports:
         - containerPort: 9002
 ---
-# -----------------------------------------
-# ttt-game-service Service
-# -----------------------------------------
 apiVersion: v1
 kind: Service
 metadata:
-  name: ttt-game-service
+  name: game-service
   namespace: ttt-game-system
 spec:
   selector:
