@@ -13,6 +13,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ttt-api-gateway-deployment
+  namespace: ttt-game-system
   labels:
     app: ttt-api-gateway
 spec:

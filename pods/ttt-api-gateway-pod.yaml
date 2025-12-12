@@ -13,6 +13,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: ttt-api-gateway
+  namespace: ttt-game-system
 spec:
   containers:
   - name: api-gateway-01
